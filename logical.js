@@ -1,6 +1,6 @@
 const canvas = document.getElementById("logical-game")
 const ctx = canvas.getContext("2d")
-let cellSize = 10;
+let cellSize = 30;
 let cols = Math.ceil(window.innerWidth / cellSize);
 let rows = Math.ceil(window.innerHeight / cellSize);
 canvas.width = window.innerWidth
@@ -31,15 +31,15 @@ function drawGrid() {
                 //ctx.fillStyle = "white";
                 ctx.font = cellSize.toString() + 'px serif'
 
-                //ctx.fillText("⬜️", x, y)
-                ctx.fillText("💀", x, y)
+                ctx.fillText("⬜️", x, y)
+                //ctx.fillText("💀", x, y)
                 // ctx.fillRect(x, y, cellSize, cellSize);
             } else {
                 //ctx.fillStyle = "black";
                 ctx.font = cellSize.toString() + 'px serif'
 
-                //ctx.fillText("⬛️", x, y)
-                ctx.fillText("😈", x, y)
+                ctx.fillText("⬛️", x, y)
+                // ctx.fillText("😈", x, y)
                 //ctx.fillRect(x, y, cellSize, cellSize);
             }
         }
@@ -84,9 +84,15 @@ async function loop() {
     while (true) {
         update();
         drawGrid();
+        await sleep(50);
         await new Promise(resolve => requestAnimationFrame(resolve));
+
     }
 }
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
