@@ -1,0 +1,14 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: darkgray;
+
+    text-align: center;
+    align-items: center;
+}
+
+canvas {
+    object-fit: contain;
+}
