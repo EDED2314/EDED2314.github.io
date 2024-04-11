@@ -1,6 +1,6 @@
 const canvas = document.getElementById("logical-game")
 const ctx = canvas.getContext("2d")
-let cellSize = 3;
+let cellSize = 10;
 let cols = Math.ceil(window.innerWidth / cellSize);
 let rows = Math.ceil(window.innerHeight / cellSize);
 canvas.width = window.innerWidth
@@ -28,11 +28,19 @@ function drawGrid() {
             const x = i * cellSize;
             const y = j * cellSize;
             if (grid[i][j] === 1) {
-                ctx.fillStyle = "white";
-                ctx.fillRect(x, y, cellSize, cellSize);
+                //ctx.fillStyle = "white";
+                ctx.font = cellSize.toString() + 'px serif'
+
+                //ctx.fillText("⬜️", x, y)
+                ctx.fillText("💀", x, y)
+                // ctx.fillRect(x, y, cellSize, cellSize);
             } else {
-                ctx.fillStyle = "black";
-                ctx.fillRect(x, y, cellSize, cellSize);
+                //ctx.fillStyle = "black";
+                ctx.font = cellSize.toString() + 'px serif'
+
+                //ctx.fillText("⬛️", x, y)
+                ctx.fillText("😈", x, y)
+                //ctx.fillRect(x, y, cellSize, cellSize);
             }
         }
     }
